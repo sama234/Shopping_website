@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { SearchContext } from "../../SerchProvider";
 
 const Shop = () => {
+    // const[search,setSearch]=useState("")
+    const {search}=useContext(SearchContext)
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +29,7 @@ const Shop = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-100">
+      <div className="flex min-h-screen items-center justify-center bg-gray-100 ">
         <div className="text-center">
           <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-indigo-600"></div>
 
@@ -37,24 +40,25 @@ const Shop = () => {
       </div>
     );
   }
+const filterproduct=data.filter((item)=>`${item.title}${item.price}`.toLowerCase().includes(search.toLowerCase()))
+
 
   return (
-    <div className="min-h-screen bg-gray-100 px-4 py-10 sm:px-6 lg:px-10">
+    <div className="pt-24 min-h-screen bg-gray-100 px-4 py-10 sm:px-6 lg:px-10">
 
       {/* Header */}
       <div className="mx-auto mb-10 max-w-7xl text-center">
-        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Our Shop
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">Our Shop</h1>
+        {/* <input type="search" placeholder=" Search.. " className="border h-9 m-3 p-4 rounded-xl border-transparent" value={search} onChange={(e)=>{
+setSearch(e.target.value)
+        }} /> */}
 
-        <p className="mt-3 text-gray-500">
-          Find the best products at amazing prices
-        </p>
+        <p className="mt-3 text-gray-500">Find the best products at amazing prices</p>
       </div>
 
       {/* Products */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {data.map((item) => {
+        {filterproduct.map((item) => {
           const originalPrice =
             item.discountPercentage > 0
               ? item.price / (1 - item.discountPercentage / 100)
