@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { addtocart } from "../../slice/cartslice";
 
 const Detail = () => {
+  const dispatch=useDispatch()
  const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -111,7 +114,7 @@ const Detail = () => {
                   </button>
 
                   <span className="border-x border-gray-300 px-5 py-2 font-semibold">
-                    1
+                    1 
                   </span>
 
                   <button className="px-4 py-2 text-lg text-gray-600 hover:bg-gray-100">
@@ -119,7 +122,7 @@ const Detail = () => {
                   </button>
                 </div>
                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="flex-1 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition hover:bg-indigo-700 active:scale-95">
+                <button onClick={()=>dispatch(addtocart(data))} className="flex-1 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition hover:bg-indigo-700 active:scale-95">
                   Add to Cart
                 </button>
 
