@@ -73,25 +73,26 @@ const categories = [
 
 const products = [
   {
-    name: "Everyday Cotton Tee",
+    name: "Everyday Cotton T Shirt",
     category: "Clothing",
-    price: "₹499",
+    price: "$19.99",
     label: "Easy favourite",
     image:
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85",
   },
-  {
-    name: "Wireless Headphones",
-    category: "Electronics",
-    price: "₹1,499",
-    label: "For your playlist",
-    image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85",
-  },
+  
+{
+  name: "Sports Collection",
+  category: "Sports",
+  price: "$33.99",
+  label: "Made for movement",
+  image:
+    "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=85",
+},
   {
     name: "Everyday Sneakers",
     category: "Footwear",
-    price: "₹1,999",
+    price: "$79.99",
     label: "Ready to go",
     image:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",
@@ -99,7 +100,7 @@ const products = [
   {
     name: "Classic Wristwatch",
     category: "Accessories",
-    price: "₹2,499",
+    price: "$29.99",
     label: "A little detail",
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85",
